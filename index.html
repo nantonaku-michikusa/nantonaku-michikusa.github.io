@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="./manifest.json">
-　　<script src="localforage.min.js"></script>
-    <title>PWA Sample</title>
-  </head>
-  <body>
-    <div id="app">
-        <p>thinker</p>
-        <button v-on:click="reverseMessage">Reverse Message</button>
-     </div>
-    <script type="text/javascript"><!--
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service_worker.js').then(function(registration) {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function(err) {
-            console.log('ServiceWorker registration failed: ', err);
-        });
-      }
-      localforage.setDriver(localforage.LOCALSTORAGE).then(function() {
-        localforage.config({
-          name: 'u_habits',
-          storeName: 'habits',
-        });
-        localforage.setItem("name", "読書");
-      });
-    --></script>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="manifest" href="./manifest.json">
+		<script src="localforage.min.js"></script>
+		<title>PWA Sample</title>
+	</head>
+	<body>
+		<div id="app">
+				<p>thinker</p>
+				<button v-on:click="reverseMessage">Reverse Message</button>
+		</div>
+		<script type="text/javascript"><!--
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('service_worker.js').then(function(registration) {
+						console.log('ServiceWorker registration successful with scope: ', registration.scope);
+				}).catch(function(err) {
+						console.log('ServiceWorker registration failed: ', err);
+				});
+			}
+			//var obj = { value: 'hello world' };
+			//localStorage.setItem('key', JSON.stringify(obj));
+
+			localforage.setDriver(localforage.LOCALSTORAGE).then(function() {
+				localforage.config({
+					name: 'u_habits',
+					storeName: 'habits',
+				});
+				localforage.setItem("name", "読書");
+			});
+		--></script>
+	</body>
 </html>
