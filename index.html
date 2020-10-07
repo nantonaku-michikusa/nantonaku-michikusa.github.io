@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
+		<title>PWA Sample</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="manifest" href="./manifest.json">
-		<script src="localforage.min.js"></script>
-		<title>PWA Sample</title>
-	</head>
-	<body>
-		<div id="app">
-				<p>thinker</p>
-				<button v-on:click="reverseMessage">Reverse Message</button>
-		</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="localforage.min.js"></script>
 		<script type="text/javascript"><!--
 			if ('serviceWorker' in navigator) {
 				navigator.serviceWorker.register('service_worker.js').then(function(registration) {
@@ -20,14 +15,23 @@
 						console.log('ServiceWorker registration failed: ', err);
 				});
 			}
-			//var obj = { value: 'hello world' };
-			//localStorage.setItem('key', JSON.stringify(obj));
 
-				localforage.config({
-					name: 'u_habits',
-					storeName: 'habits',
-				});
+			localforage.config({
+				name: 'u_habits',
+				storeName: 'habits',
+			});
+
+			$("textarea").text(localforage.getItem("name", function(err, value){ alert(value) }));
+
+			function save(){
 				localforage.setItem("name", "読書");
+			}
 		--></script>
+	</head>
+	<body>
+		<div id="app">
+			<textarea></textarea>
+			<button onClick="save()">Save</button>
+		</div>
 	</body>
 </html>
