@@ -23,13 +23,11 @@
 			//var obj = { value: 'hello world' };
 			//localStorage.setItem('key', JSON.stringify(obj));
 
-			localforage.setDriver(localforage.LOCALSTORAGE).then(function() {
 				localforage.config({
 					name: 'u_habits',
 					storeName: 'habits',
 				});
 				localforage.setItem("name", "読書");
-			});
 		--></script>
 	</body>
 </html>
