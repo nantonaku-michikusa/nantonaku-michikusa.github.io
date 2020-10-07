@@ -20,11 +20,13 @@
             console.log('ServiceWorker registration failed: ', err);
         });
       }
-      localforage.config({
-        name: 'u_habits',
-        storeName: 'habits',
+      localforage.setDriver(localforage.LOCALSTORAGE).then(function() {
+        localforage.config({
+          name: 'u_habits',
+          storeName: 'habits',
+        });
+        localforage.setItem("name", "読書");
       });
-      localforage.setItem("name", "読書");
     --></script>
   </body>
 </html>
