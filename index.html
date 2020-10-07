@@ -21,7 +21,7 @@
 				storeName: 'habits',
 			});
 
-			$("textarea").text(localforage.getItem("name", function(err, value){ alert(value) }));
+			$("textarea").text(localforage.getItem("name", function(err, value){return value}));
 
 			function save(){
 				localforage.setItem("name", "読書");
