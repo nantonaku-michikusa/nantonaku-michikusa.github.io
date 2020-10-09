@@ -400,8 +400,16 @@
 			}
 
 			$(function(){
-				// ウィンドウの高さに合わせて表示サイズを調整
-				$("#app").css("zoom", ($(window).height()/778*100)+"%");
+				// ウィンドウの幅or高さに合わせて表示サイズを調整
+				var widthRate	= $(window).width()/625*100;
+				var heightRate	= $(window).height()/778*100;
+
+				// ウィンドウ幅の方がより小さくする必要がある場合
+				if(widthRate <= heightRate){
+					$("#app").css("zoom", widthRate+"%");
+				}else{
+					$("#app").css("zoom", heightRate+"%");
+				}
 
 				// フォームを表示
 				for(i=1; i<=10; i++){
