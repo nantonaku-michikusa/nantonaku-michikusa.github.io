@@ -401,8 +401,8 @@
 
 			$(function(){
 				// ウィンドウの幅or高さに合わせて表示サイズを調整
-				var widthRate	= $(window).width()/625*100;
-				var heightRate	= $(window).height()/778*100;
+				var widthRate	= $(window).width()/625*100-20;
+				var heightRate	= $(window).height()/778*100-20;
 
 				// ウィンドウ幅の方がより小さくする必要がある場合
 				if(widthRate <= heightRate){
